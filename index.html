@@ -14,7 +14,7 @@
         footer { background-color: #333; color: #fff; padding: 10px; margin-top: 20px; }
         img.logo { width: 100px; height: auto; } /* Ajusta el tamaño del logo */
         img.menu { width: 80%; height: auto; margin: 10px 0; } /* Ajusta el tamaño de las imágenes del menú */
-        .food-images img { width: 100%; height: auto; max-width: 500px; margin: 10px 0; } /* Estilo para las imágenes de comida */
+        .food-images img { width: 100%; height: auto; max-width: 500px; margin: 10px 0; display: none; } /* Ocultar las imágenes de los platos por defecto */
         
         .whatsapp-button {
             background-color: #25d366;
@@ -71,7 +71,7 @@
         <p>¡Disfruta de los mejores sabores y la mejor experiencia culinaria en nuestro restaurante!</p>
         
         <!-- Sección de imágenes de comida -->
-        <div class="food-images">
+        <div class="food-images" id="foodImages">
             <img src="comida1.jpg" alt="Plato de comida 1">
             <img src="comida2.jpg" alt="Plato de comida 2">
             <img src="comida3.jpg" alt="Plato de comida 3">
@@ -114,6 +114,12 @@
             document.getElementById('menu').style.display = 'none';
             document.getElementById('ubicacion').style.display = 'none';
             document.getElementById('contacto').style.display = 'none';
+            document.getElementById('foodImages').style.display = 'none'; // Ocultar las imágenes de comida
+        }
+
+        // Función para mostrar las imágenes de comida
+        function mostrarImagenesComida() {
+            document.getElementById('foodImages').style.display = 'block'; // Mostrar las imágenes
         }
 
         // Mostrar la sección de Menú
@@ -141,7 +147,11 @@
         document.getElementById('btnInicio').addEventListener('click', function(event) {
             event.preventDefault(); // Evita el desplazamiento automático
             window.scrollTo({ top: 0, behavior: 'smooth' }); // Desplazamiento suave hacia el inicio de la página
+            mostrarImagenesComida(); // Mostrar las imágenes de comida nuevamente
         });
+
+        // Mostrar las imágenes de comida al cargar la página
+        window.onload = mostrarImagenesComida; // Al cargar la página, mostrar las imágenes
     </script>
 
     <!-- Botón flotante de WhatsApp -->
@@ -151,5 +161,4 @@
 
 </body>
 </html>
-
 
