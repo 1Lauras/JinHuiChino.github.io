@@ -14,6 +14,7 @@
         footer { background-color: #333; color: #fff; padding: 10px; margin-top: 20px; }
         img.logo { width: 100px; height: auto; } /* Ajusta el tamaño del logo */
         img.menu { width: 80%; height: auto; margin: 10px 0; } /* Ajusta el tamaño de las imágenes del menú */
+        .food-images img { width: 100%; height: auto; max-width: 500px; margin: 10px 0; } /* Estilo para las imágenes de comida */
         
         .whatsapp-button {
             background-color: #25d366;
@@ -25,6 +26,30 @@
             border-radius: 5px;
         }
         .whatsapp-button:hover {
+            background-color: #128c7e;
+        }
+
+        /* Estilo para el botón flotante de WhatsApp */
+        .whatsapp-float-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+        }
+
+        .whatsapp-float-button:hover {
             background-color: #128c7e;
         }
     </style>
@@ -44,6 +69,13 @@
     <div class="content">
         <h2>Bienvenidos a Jin Hui Chino</h2>
         <p>¡Disfruta de los mejores sabores y la mejor experiencia culinaria en nuestro restaurante!</p>
+        
+        <!-- Sección de imágenes de comida -->
+        <div class="food-images">
+            <img src="comida1.jpg" alt="Plato de comida 1">
+            <img src="comida2.jpg" alt="Plato de comida 2">
+            <img src="comida3.jpg" alt="Plato de comida 3">
+        </div>
     </div>
 
     <!-- Sección del Menú (oculta inicialmente) -->
@@ -111,6 +143,13 @@
             window.scrollTo({ top: 0, behavior: 'smooth' }); // Desplazamiento suave hacia el inicio de la página
         });
     </script>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=+573205998973&text=hola,%20vengo%20de%20la%20p%C3%A1gina%20web,%20%C2%A1quiero%20hacer%20un%20pedido!" target="_blank">
+        <button class="whatsapp-float-button">📲</button>
+    </a>
+
 </body>
 </html>
+
 
