@@ -11,7 +11,7 @@
         nav a { margin: 0 15px; color: #fff; text-decoration: none; }
         .content { padding: 20px; }
         .menu-section { padding: 20px; }
-        .map-container { width: 100%; height: 300px; margin-top: 20px; }
+        .map-container { width: 100%; height: 300px; margin-top: 20px; display: none; } /* Ocultar la ubicación inicialmente */
         .contact-section { padding: 20px; }
         footer { background-color: #333; color: #fff; padding: 10px; margin-top: 20px; }
         img.logo { width: 100px; height: auto; } /* Ajusta el tamaño del logo */
@@ -36,10 +36,10 @@
 </head>
 <body>
     <header>
-        <img src="LOGO JIN HUI png.png" alt="Logo de Jin Hui Chino" class="logo">
+        <img src="LOGO JIN HUI png.png2" alt="Logo de Jin Hui Chino" class="logo">
         <h1>Jin Hui Chino</h1>
         <nav>
-            <a href="#">Inicio</a>
+            <a href="#">Inicio</a> <!-- Enlace al inicio -->
             <a href="#menu">Menú</a> <!-- Enlace al menú -->
             <a href="#ubicacion">Ubicación</a> <!-- Enlace a la ubicación -->
             <a href="#contacto">Contacto</a> <!-- Enlace a la sección de contacto -->
@@ -54,11 +54,11 @@
     <!-- Sección del Menú (oculta inicialmente) -->
     <div id="menu" class="menu-section hidden">
         <h3>Menú</h3>
-        <img src="menu1.jpg" alt="Menú - Parte 1" class="menu">
-        <img src="menu2.jpg" alt="Menú - Parte 2" class="menu">
+        <img src="menu1.png" alt="Menú - Parte 1" class="menu">
+        <img src="menu2.png" alt="Menú - Parte 2" class="menu">
     </div>
     
-    <!-- Sección de Ubicación -->
+    <!-- Sección de Ubicación (oculta inicialmente) -->
     <div id="ubicacion" class="map-container">
         <h3>Ubicación</h3>
         <!-- Código de Google Maps -->
@@ -81,18 +81,33 @@
         <p>&copy; 2024 Jin Hui Chino</p>
     </footer>
 
-    <!-- JavaScript para mostrar el menú y el contacto al hacer clic -->
+    <!-- JavaScript para mostrar el menú, contacto y ubicación al hacer clic -->
     <script>
+        // Mostrar el Menú
         document.querySelector('a[href="#menu"]').addEventListener('click', function(event) {
             event.preventDefault(); // Evita el desplazamiento automático
             document.getElementById('menu').classList.remove('hidden'); // Muestra el menú
             document.getElementById('menu').scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave hacia el menú
         });
 
+        // Mostrar la Ubicación
+        document.querySelector('a[href="#ubicacion"]').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita el desplazamiento automático
+            document.getElementById('ubicacion').classList.remove('hidden'); // Muestra la ubicación
+            document.getElementById('ubicacion').scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave hacia la ubicación
+        });
+
+        // Mostrar el Contacto
         document.querySelector('a[href="#contacto"]').addEventListener('click', function(event) {
             event.preventDefault(); // Evita el desplazamiento automático
             document.getElementById('contacto').classList.remove('hidden'); // Muestra la sección de contacto
             document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave hacia la sección de contacto
+        });
+
+        // Volver al inicio
+        document.querySelector('a[href="#"]').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita el desplazamiento automático
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Desplazamiento suave hacia el inicio de la página
         });
     </script>
 </body>
